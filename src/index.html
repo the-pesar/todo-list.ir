@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/typer-js/dist/typer.min.css"
+    />
+    <script src="https://unpkg.com/typer-js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap"
+      rel="stylesheet"
+    />
+    <title>Todo List</title>
+    <style>
+      body {
+        background-color: #f5f5f5;
+        font-family: "Vazirmatn", sans-serif;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .box {
+        margin-right: 5px;
+        height: 90vh;
+      }
+      .line {
+        /* text-align: center; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p class="line"></p>
+    </div>
+  </body>
+  <script>
+    typer(".line")
+      .line("سلام ستون، چطوری ؟!", { totalTime: 2500 })
+      .pause(2000)
+      .line(
+        "من تودولیستم، هنوز بدنیا نیومدم ولی از خالقم شنیدم که خیلی از شما آدما برنامه ریزی درست و دقیقی توی کار های روزمره ندارید...!",
+        { totalTime: 8000 }
+      )
+      .pause(2000)
+      .line(
+        "خوشبختانه من بعد از دو هفته بتازگی تونستم به سطحی برسم که به خالقم توی کار های روزمره اش کمک کنم، اون بهم گفته که من اول باید بتونم نظم رو به زندگی خودش برگردونم تا بعد بتونم به شما ها کمک کنم، این خیلی مهمه!"
+      )
+      .pause(2000)
+      .line(
+        "اگه فکر میکنی که میتونی باعث بشی من زودتر بدنیا بیام به خالقم توی توییتر یا تلگرام پیام بده و باهمدیگه یکم صحبت کنید."
+      )
+      .pause(1500)
+      .line("فقط حواست باشه اینروزا خیلی بی حوصله ست -ـ-")
+      .pause(800)
+      .line("Telegram: @PesarDev")
+      .line("Twitter: @Pesarist")
+      .pause(1000)
+      .line("بزودی باهمدیگه بیشتر آشنا میشیم...فعلا :)");
+  </script>
+</html>

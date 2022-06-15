@@ -1,0 +1,29 @@
+{
+    // error format
+    "statusCode": 401,
+    "error": "Unauthorized",
+    "message": "your token is invalid!"
+
+    // success format
+    {
+
+    }
+
+    // get todos
+    {
+        todos: [
+            {}
+        ]
+    }
+
+    // create todo 201
+    {
+        todo: {}
+    }
+
+    // delete todo ok => 200 !ok => 400
+    // no response 
+
+    // done or undone todo
+    // success: true | false
+}
