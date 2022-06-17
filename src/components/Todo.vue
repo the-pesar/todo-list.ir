@@ -15,16 +15,19 @@
             </n-popover>
         </template>
         <hr>
-        <p v-if="todo.desc" class="mt-3">{{ todo.desc }}</p>
+        <p v-if="todo.desc" class="mt-3">
+            <!-- {{ todo.desc }} -->
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quod neque debitis? Repellat dicta deleniti
+            est voluptatem dolorem sequi odit exercitationem consequuntur.
+        </p>
         <div class="flex items-center flex-col">
-            <n-rate class="my-5" readonly size="large" :default-value="todo.force" color="#18a058" />
+            <!-- <n-rate class="my-5" readonly size="large" :default-value="todo.force" color="#18a058" /> -->
             <n-checkbox v-model:checked="todo.done" size="large" @update:checked="changeDone(todo._id, todo.done)" />
         </div>
-        <div class="flex justify-end">
+        <!-- <div class="flex justify-end">
             <span v-if="todo.pin"
                 style="background-color: #FF0000; width: 10px; height: 10px; border-radius: 50%;"></span>
-        </div>
-
+        </div> -->
     </n-card>
 </template>
 

@@ -22,6 +22,36 @@ const routes = [
         component: () => import("@/views/UpdateTodo.vue"),
       },
       {
+        path: "today",
+        name: "today",
+        component: () => import("@/views/Todos/Today.vue"),
+      },
+      {
+        path: "weekly",
+        name: "weekly",
+        component: () => import("@/views/Todos/Weekly.vue"),
+      },
+      {
+        path: "monthly",
+        name: "monthly",
+        component: () => import("@/views/Todos/Monthly.vue"),
+      },
+      {
+        path: "six-monthly",
+        name: "six-monthly",
+        component: () => import("@/views/Todos/SixMonthly.vue"),
+      },
+      {
+        path: "yearly",
+        name: "yearly",
+        component: () => import("@/views/Todos/Yearly.vue"),
+      },
+      {
+        path: "five-yearly",
+        name: "five-yearly",
+        component: () => import("@/views/Todos/FiveYearly.vue"),
+      },
+      {
         path: ":pathMatch(.*)",
         name: "404",
         component: () => import("@/views/404.vue"),

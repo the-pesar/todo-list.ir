@@ -1,11 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 body {
   background-color: #f5f5f5;
-  font-family: "DM Sans", sans-serif;
+  /* font-family: "DM Sans", sans-serif; */
+  font-family: "Inter", sans-serif;
 }
 
 .n-button--primary-type {

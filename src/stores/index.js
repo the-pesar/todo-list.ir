@@ -6,7 +6,7 @@ import {
   sortByForce,
 } from "@/utilities/helpers";
 
-axios.defaults.baseURL = "http://192.168.1.8:1323";
+axios.defaults.baseURL = "http://localhost:1323";
 
 export const useStore = defineStore("main", {
   state: () => {

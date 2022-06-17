@@ -7,7 +7,6 @@
         <n-divider style="margin-top: 0" dashed>
             My Boards
         </n-divider>
-        <!-- <p class="font-semibold mb-5 ml-8">My Boards</p> -->
         <div class="flex flex-col items-center">
             <div class="flex rounded-3xl p-1 w-10/12 cursor-pointer"
                 :class="activeBtn === 'today' ? 'menu-btn-active' : 'menu-btn'" @click="changeActive('today')">
@@ -18,20 +17,21 @@
             </div>
             <div class="flex rounded-3xl p-1 w-10/12 mt-3 cursor-pointer"
                 :class="activeBtn === 'weekly' ? 'menu-btn-active' : 'menu-btn'" @click="changeActive('weekly')">
-                <i class='bx bx-calendar-week text-2xl ml-3'></i>
+                <i class='bx bx-cube text-2xl ml-3'></i>
                 <button class="ml-6 font-semibold">
                     Weekly
                 </button>
             </div>
             <div class="flex rounded-3xl p-1 w-10/12 mt-3 cursor-pointer"
                 :class="activeBtn === 'monthly' ? 'menu-btn-active' : 'menu-btn'" @click="changeActive('monthly')">
-                <i class='bx bx-note text-2xl ml-3'></i>
+                <i class='bx bx-extension text-2xl ml-3'></i>
                 <button class="ml-6 font-semibold">
                     Monthly
                 </button>
             </div>
             <div class="flex rounded-3xl p-1 w-10/12 mt-3 cursor-pointer"
-                :class="activeBtn === '6-monthly' ? 'menu-btn-active' : 'menu-btn'" @click="changeActive('6-monthly')">
+                :class="activeBtn === 'six-monthly' ? 'menu-btn-active' : 'menu-btn'"
+                @click="changeActive('six-monthly')">
                 <i class='bx bx-pyramid text-2xl ml-3'></i>
                 <button class="ml-6 font-semibold">
                     6-Monthly
@@ -45,10 +45,11 @@
                 </button>
             </div>
             <div class="flex rounded-3xl p-1 w-10/12 mt-3 cursor-pointer"
-                :class="activeBtn === '5-yearly' ? 'menu-btn-active' : 'menu-btn'" @click="changeActive('5-yearly')">
+                :class="activeBtn === 'vision' ? 'menu-btn-active' : 'menu-btn'"
+                @click="changeActive('vision')">
                 <i class='bx bx-hive text-2xl ml-3'></i>
                 <button class="ml-6 font-semibold">
-                    5-Yearly
+                    Vision
                 </button>
             </div>
         </div>
@@ -56,10 +57,16 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 const activeBtn = ref("today")
 
-const changeActive = (btn) => activeBtn.value = btn
+const changeActive = (btn) => {
+    activeBtn.value = btn
+    router.push({ name: btn })
+}
 
 </script>
 <style lang="scss" scoped>
