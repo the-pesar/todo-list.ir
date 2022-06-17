@@ -19,7 +19,7 @@
     <n-button type="primary" :block="true" size="large" @click="createTodo" :loading="store.loading">
       Add Todo
     </n-button>
-    <p class="opacity-60 font-medium mt-2" @click="router.push({ name: 'home' })">
+    <p class="opacity-60 font-medium mt-2" style="cursor: pointer;" @click="router.push({ name: 'home' })">
       Back to Todos Page...
     </p>
   </div>
