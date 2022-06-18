@@ -9,7 +9,8 @@ const routes = [
       {
         path: "",
         name: "home",
-        component: () => import("@/views/Home.vue"),
+        redirect: "today",
+        // component: () => import("@/views/Home.vue"),
       },
       {
         path: "add-todo",
@@ -47,9 +48,9 @@ const routes = [
         component: () => import("@/views/Todos/Yearly.vue"),
       },
       {
-        path: "five-yearly",
-        name: "five-yearly",
-        component: () => import("@/views/Todos/FiveYearly.vue"),
+        path: "vision",
+        name: "vision",
+        component: () => import("@/views/Todos/Vision.vue"),
       },
       {
         path: ":pathMatch(.*)",

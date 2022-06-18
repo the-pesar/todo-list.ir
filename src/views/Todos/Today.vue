@@ -1,35 +1,113 @@
 <template>
-    <!-- <n-divider title-placement="left">
-        <span class="text-2xl">Today 🔥👀</span>
-    </n-divider> -->
-    <!-- <p>{{ $t("message") }}</p> -->
-    <!-- <n-select v-model:value="store.sortBy" class="shadow rounded-2xl mb-2 w-[150px] ml-3.5" placeholder="Ordering..."
-        size="large" :options="options" @update:value="changeSort" /> -->
-    <Todos title="Low 🔥👀"></Todos>
-    <Todos title="Medium 🔥👀"></Todos>
-    <Todos title="High 🔥👀"></Todos>
+    <n-grid cols="1 s:1 m:2 l:3 xl:3 2xl:5" responsive="screen" x-gap="12">
+        <n-grid-item class="mx-10">
+            <n-divider title-placement="center">
+                <span class="text-xl">Low 🐼🍋</span>
+            </n-divider>
+            <n-collapse>
+                <n-grid cols="1 s:1 m:2 l:3 xl:1 2xl:5" responsive="screen" x-gap="12">
+                    <n-grid-item v-for="t in todos" :key="t.id">
+                        <Todo :todo="t"></Todo>
+                    </n-grid-item>
+                    <n-grid-item class="flex justify-center">
+                        <span class="text-5xl cursor-pointer" style="color: #18a058" @click="showModal = true">+</span>
+                    </n-grid-item>
+                </n-grid>
+            </n-collapse>
+        </n-grid-item>
 
-    <!-- <div class="m-10">
-        <Carousel :items-to-show="5">
-            <Slide v-for="slide in 10" :key="slide">
-                <div class="carousel__item">{{ slide }}</div>
-            </Slide>
+        <n-grid-item class="mx-10">
+            <n-divider title-placement="center">
+                <span class="text-xl">Medium 🐨💎</span>
+            </n-divider>
+            <n-collapse>
+                <n-grid cols="1 s:1 m:2 l:3 xl:1 2xl:5" responsive="screen" x-gap="12">
+                    <n-grid-item v-for="t in todos" :key="t.id">
+                        <Todo :todo="t"></Todo>
+                    </n-grid-item>
+                    <n-grid-item class="flex justify-center">
+                        <span class="text-5xl cursor-pointer" style="color: #18a058" @click="showModal = true">+</span>
+                    </n-grid-item>
+                </n-grid>
+            </n-collapse>
+        </n-grid-item>
 
-            <template #addons>
-                <Navigation />
-            </template>
-        </Carousel>
-    </div> -->
+        <n-grid-item class="mx-10">
+            <n-divider title-placement="center">
+                <span class="text-xl">High 🐻🍭</span>
+            </n-divider>
+            <n-collapse>
+                <n-grid cols="1 s:1 m:2 l:3 xl:1 2xl:5" responsive="screen" x-gap="12">
+                    <n-grid-item v-for="t in todos" :key="t.id">
+                        <Todo :todo="t"></Todo>
+                    </n-grid-item>
+                    <n-grid-item class="flex justify-center">
+                        <span class="text-5xl cursor-pointer" style="color: #18a058" @click="showModal = true">+</span>
+                    </n-grid-item>
+                </n-grid>
+            </n-collapse>
+        </n-grid-item>
+    </n-grid>
 
+    <n-modal v-model:show="showModal">
+        <n-card style="width: 500px" title="Create Todo" :bordered="true" size="huge" role="dialog">
+            <div class="px-8 pb-5">
+                <n-input placeholder="title..." size="large" />
+                <n-input class="mt-4" type="textarea" placeholder="description..." size="large" />
+                <n-button class="mt-4" type="primary" :block="true">Create</n-button>
+            </div>
+        </n-card>
+    </n-modal>
 </template>
 
 <script setup>
-import Todos from "@/components/Todos.vue";
-import { useStore } from "@/stores";
+import { ref } from 'vue'
+import Todo from '@/components/Todo.vue'
 
-const store = useStore();
+const showModal = ref(false)
 
-store.todos || store.getTodos();
+const todos = [
+    {
+        id: 0,
+        title: "Fix Sorting bugs todo list",
+        desc: "Fix SortingFix SortingFix SortingFix SortingFix Sorting",
+        done: false,
+        pin: false
+    },
+    {
+        id: 1,
+        title: "Add New Feature TodoList 🧠",
+        desc: "desc desc desc desc desc desc desc desc",
+        done: false,
+        pin: false
+    },
+    {
+        id: 2,
+        title: "Find a new Post for Dev.tweet 🌎",
+        desc: "desc",
+        done: false,
+        pin: false
+    },
+    {
+        id: 3,
+        title: "create new episode poadcast",
+        desc: "new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast ",
+        done: false,
+        pin: false
+    },
+    {
+        id: 4,
+        title: "just for test",
+        desc: "just for test just for test just for test just for test just for test just for test just for test just for test just for test just for test ",
+        done: false,
+        pin: false
+    }
+]
+// import { useStore } from "@/stores";
+
+// const store = useStore();
+
+// store.todos || store.getTodos();
 
 // const options = [
 //     {
@@ -58,3 +136,17 @@ store.todos || store.getTodos();
 // }
 
 </script>
+
+<style lang="scss">
+.n-card__content {
+    padding: 10px !important
+}
+
+.n-collapse-item__header-main {
+    font-size: 16px !important;
+}
+
+.n-card-header {
+    padding-bottom: 0 !important;
+}
+</style>

@@ -4,9 +4,22 @@ import {
   sortByTime,
   sortByDone,
   sortByForce,
+  // fakeLoading,
 } from "@/utilities/helpers";
+// import uuid4 from "uuid4";
 
 axios.defaults.baseURL = "http://localhost:1323";
+
+[
+  {
+    // id: uuid4(),
+    title: "",
+    desc: "",
+    type: "low",
+    pin: false,
+    done: false,
+  },
+];
 
 export const useStore = defineStore("main", {
   state: () => {
@@ -27,14 +40,17 @@ export const useStore = defineStore("main", {
   },
   actions: {
     getTodos() {
-      return axios
-        .get("/get-todos")
-        .then(({ data }) => {
-          this.todos = sortByTime(data);
-        })
-        .catch((err) => {
-          this.todos = err;
-        });
+      const cacheTodos = localStorage.getItem("todos");
+      console.log(cacheTodos);
+
+      // return axios
+      //   .get("/get-todos")
+      //   .then(({ data }) => {
+      //     this.todos = sortByTime(data);
+      //   })
+      //   .catch((err) => {
+      //     this.todos = err;
+      //   });
     },
     createTodo({ name, desc, force }) {
       const formdata = new FormData();

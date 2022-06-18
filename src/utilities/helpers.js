@@ -30,3 +30,7 @@ export const sortByForce = (todos) => {
   todos.sort((a, b) => a.force - b.force);
   return sortByPin(todos.reverse());
 };
+
+export const fakeLoading = (s) => {
+  return new Promise((resolve) => setTimeout(() => resolve(), s));
+};

@@ -1,6 +1,6 @@
 <template>
     <n-layout has-sider>
-        <n-layout-sider position="static" class="shadow-xl" width="250px">
+        <n-layout-sider v-if="true" class="shadow-xl" position="static" width="250px">
             <Sidebar></Sidebar>
         </n-layout-sider>
         <n-layout content-style="background-color: red">

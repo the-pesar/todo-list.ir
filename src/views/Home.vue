@@ -129,10 +129,6 @@ const { title } = toRefs(props)
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .4), 0 1px 2px 0 rgba(0, 0, 0, .06)
 }
 
-.n-card__content {
-  padding: 10px !important
-}
-
 .n-collapse-item__header-main {
   font-size: 15px !important;
 }
