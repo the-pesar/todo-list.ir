@@ -2,12 +2,56 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import { createPinia } from "pinia";
-import naive from "naive-ui";
 import "@/assets/index.css";
 import "./registerServiceWorker";
-import i18n from './i18n'
+import i18n from "./i18n";
+import {
+  create,
+  NButton,
+  NCard,
+  NCheckbox,
+  NCollapse,
+  NCollapseItem,
+  NDivider,
+  NGrid,
+  NGridItem,
+  NInput,
+  NLayout,
+  NLayoutContent,
+  NLayoutFooter,
+  NLayoutSider,
+  NLoadingBarProvider,
+  NModal,
+  NNotificationProvider,
+  NPopover,
+  NSwitch,
+} from "naive-ui";
 
-createApp(App).use(i18n)
+const naive = create({
+  components: [
+    NCard,
+    NGrid,
+    NGridItem,
+    NDivider,
+    NCollapse,
+    NCollapseItem,
+    NModal,
+    NCheckbox,
+    NPopover,
+    NButton,
+    NLayout,
+    NLayoutSider,
+    NLayoutFooter,
+    NLayoutContent,
+    NSwitch,
+    NLoadingBarProvider,
+    NInput,
+    NNotificationProvider,
+  ],
+});
+
+createApp(App)
+  .use(i18n)
   .use(router)
   .use(naive)
   .use(createPinia())

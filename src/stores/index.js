@@ -1,25 +1,9 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-import {
-  sortByTime,
-  sortByDone,
-  sortByForce,
-  // fakeLoading,
-} from "@/utilities/helpers";
-// import uuid4 from "uuid4";
+import { sortByPin, defaultENTodos } from "@/utilities/helpers";
+import { v4 as uuid4 } from "uuid";
 
 axios.defaults.baseURL = "http://localhost:1323";
-
-[
-  {
-    // id: uuid4(),
-    title: "",
-    desc: "",
-    type: "low",
-    pin: false,
-    done: false,
-  },
-];
 
 export const useStore = defineStore("main", {
   state: () => {
@@ -27,72 +11,107 @@ export const useStore = defineStore("main", {
       todos: null,
       sortBy: localStorage.getItem("sortBy") || null,
       loading: false,
+      theme: localStorage.getItem("theme") || "no-background", // no-background || background
     };
   },
   getters: {
-    sortedTodos() {
-      if (!this.todos) return [];
-      if (this.sortBy === "time") return sortByTime(this.todos);
-      if (this.sortBy === "done") return sortByDone(this.todos);
-      if (this.sortBy === "force") return sortByForce(this.todos);
-      else return sortByTime(this.todos);
+    todayLowTodos() {
+      return sortByPin(
+        this.todos.filter((v) => v.type === "daily" && v.force === "low")
+      );
+    },
+    todayMediumTodos() {
+      return sortByPin(
+        this.todos.filter((v) => v.type === "daily" && v.force === "medium")
+      );
+    },
+    todayHighTodos() {
+      return sortByPin(
+        this.todos.filter((v) => v.type === "daily" && v.force === "high")
+      );
+    },
+    weeklyTodos() {
+      return sortByPin(
+        this.todos.filter((v) => v.type === "weekly" && v.force === "medium")
+      );
+    },
+    monthlyTodos() {
+      return sortByPin(
+        this.todos.filter((v) => v.type === "monthly" && v.force === "medium")
+      );
+    },
+    sixMonthlyTodos() {
+      return sortByPin(
+        this.todos.filter(
+          (v) => v.type === "six-monthly" && v.force === "medium"
+        )
+      );
+    },
+    yearlyTodos() {
+      return sortByPin(
+        this.todos.filter((v) => v.type === "yearly" && v.force === "medium")
+      );
     },
   },
   actions: {
     getTodos() {
       const cacheTodos = localStorage.getItem("todos");
-      console.log(cacheTodos);
 
-      // return axios
-      //   .get("/get-todos")
-      //   .then(({ data }) => {
-      //     this.todos = sortByTime(data);
-      //   })
-      //   .catch((err) => {
-      //     this.todos = err;
-      //   });
+      if (!cacheTodos) {
+        localStorage.setItem("todos", JSON.stringify(defaultENTodos));
+        this.todos = defaultENTodos;
+        return;
+      }
+
+      try {
+        this.todos = JSON.parse(cacheTodos);
+      } catch (error) {
+        localStorage.setItem("todos", "[]");
+        this.todos = [];
+      }
     },
-    createTodo({ name, desc, force }) {
-      const formdata = new FormData();
-      formdata.append("name", name);
-      formdata.append("desc", desc);
-      formdata.append("force", force);
-      this.loading = true;
-      return axios
-        .post("/create-todo", formdata)
-        .then(({ data }) => {
-          this.todos && this.todos.push(data.todo);
-        })
-        .finally(() => {
-          this.loading = false;
-        });
+    createTodo({ title, desc, force, type, pin }) {
+      this.todos.push({
+        id: uuid4(),
+        title,
+        desc,
+        force,
+        type,
+        pin,
+        done: false,
+      });
+
+      localStorage.setItem("todos", JSON.stringify(this.todos));
+    },
+    updateTodo({ id, title, desc }) {
+      const i = this.todos.findIndex((value) => value.id === id);
+      this.todos[i].title = title;
+      this.todos[i].desc = desc;
+      localStorage.setItem("todos", JSON.stringify(this.todos));
     },
     deleteTodo({ id }) {
-      return axios.delete(`/delete-todo?id=${id}`).then(() => {
-        this.todos.splice(
-          this.todos.findIndex((value) => value._id === id),
-          1
-        );
-      });
+      const i = this.todos.findIndex((value) => value.id === id);
+
+      if (i !== -1) {
+        this.todos.splice(i, 1);
+        localStorage.setItem("todos", JSON.stringify(this.todos));
+      }
     },
     doneOrUndoneTodo({ id, done }) {
-      const formdata = new FormData();
-      formdata.append("id", id);
-      formdata.append("done", done);
-      return axios.patch("/done-or-undone-todo", formdata);
+      const i = this.todos.findIndex((value) => value.id === id);
+
+      if (i !== -1) {
+        this.todos[i].done = done;
+        localStorage.setItem("todos", JSON.stringify(this.todos));
+      }
     },
     pinOrUnpinTodo({ id, pin }) {
-      const formdata = new FormData();
-      formdata.append("id", id);
-      formdata.append("pin", pin);
-      return axios.patch("/pin-or-unpin-todo", formdata).then(() => {
-        const i = this.todos.findIndex((value) => value._id === id);
+      const i = this.todos.findIndex((value) => value.id === id);
+
+      if (i !== -1) {
         this.todos[i].pin = pin;
-        const t = this.todos[i];
-        this.todos.splice(i, 1);
-        if (pin) this.todos.unshift(t);
-        else this.todos.push(t);
-      });
+        localStorage.setItem("todos", JSON.stringify(this.todos));
+      }
     },
   },
 });

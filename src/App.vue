@@ -1,5 +1,5 @@
 <template>
-  <n-notification-provider :placement="'bottom'">
+  <n-notification-provider placement="bottom-right">
     <n-loading-bar-provider>
       <router-view />
     </n-loading-bar-provider>
@@ -7,4 +7,9 @@
 </template>
 
 <script setup>
+import { useStore } from '@/stores'
+
+const store = useStore()
+
+store.todos || store.getTodos()
 </script>

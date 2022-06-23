@@ -10,17 +10,6 @@ const routes = [
         path: "",
         name: "home",
         redirect: "today",
-        // component: () => import("@/views/Home.vue"),
-      },
-      {
-        path: "add-todo",
-        name: "addTodo",
-        component: () => import("@/views/AddTodo.vue"),
-      },
-      {
-        path: "update-todo/:id",
-        name: "updateTodo",
-        component: () => import("@/views/UpdateTodo.vue"),
       },
       {
         path: "today",
@@ -51,6 +40,11 @@ const routes = [
         path: "vision",
         name: "vision",
         component: () => import("@/views/Todos/Vision.vue"),
+      },
+      {
+        path: "settings",
+        name: "settings",
+        component: () => import("@/views/Settings.vue"),
       },
       {
         path: ":pathMatch(.*)",

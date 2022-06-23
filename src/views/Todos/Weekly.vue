@@ -1,67 +1,24 @@
 <template>
-    <n-grid cols="1 s:1 m:2 l:3 xl:1 2xl:5" responsive="screen" x-gap="12">
-        <n-grid-item class="mx-10">
-            <n-divider title-placement="left">
-                <span class="text-xl">Weekly Todos 🐼🍋</span>
-            </n-divider>
-            <n-collapse>
-                <n-grid cols="1 s:1 m:2 l:3 xl:3 2xl:5" responsive="screen" x-gap="12">
-                    <n-grid-item class="px-5" v-for="t in todos" :key="t.id">
-                        <Todo :todo="t"></Todo>
-                    </n-grid-item>
-                    <n-grid-item class="flex justify-center">
-                        <span class="text-5xl cursor-pointer" style="color: #18a058" @click="showModal = true">+</span>
-                    </n-grid-item>
-                </n-grid>
-            </n-collapse>
-        </n-grid-item>
-    </n-grid>
+    <!-- <n-grid cols="1 s:1 m:2 l:3 xl:2 2xl:5" responsive="screen" x-gap="12">
+        <n-grid-item class="mx-4 2xl:mx-6"> -->
+    <div class="flex justify-center">
+        <div class="2xl:w-5/12 xl:w-5/12 lg:w-7/12 md:w-11/12 sm:w-11/12 w-11/12">
+            <TodoColumn title="Weekly 🦊🌶" :todos="store.weeklyTodos" type="weekly" force="medium" />
+        </div>
+    </div>
+    <!-- </n-grid-item>
+    </n-grid> -->
+    <AbsoluteAd></AbsoluteAd>
 </template>
 
 <script setup>
+import { useStore } from "@/stores";
 
-import { ref } from 'vue'
-import Todo from '@/components/Todo.vue'
+import TodoColumn from '@/components/TodoColumn.vue';
+import AbsoluteAd from '@/components/AbsoluteAd.vue';
 
-const showModal = ref(false)
+const store = useStore();
 
-const todos = [
-    {
-        id: 0,
-        title: "Fix Sorting bugs todo list",
-        desc: "Fix SortingFix SortingFix SortingFix SortingFix Sorting",
-        done: false,
-        pin: false
-    },
-    {
-        id: 1,
-        title: "Add New Feature TodoList 🧠",
-        desc: "desc desc desc desc desc desc desc desc",
-        done: false,
-        pin: false
-    },
-    {
-        id: 2,
-        title: "Find a new Post for Dev.tweet 🌎",
-        desc: "desc",
-        done: false,
-        pin: false
-    },
-    {
-        id: 3,
-        title: "create new episode poadcast",
-        desc: "new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast new episode poadcast ",
-        done: false,
-        pin: false
-    },
-    {
-        id: 4,
-        title: "just for test",
-        desc: "just for test just for test just for test just for test just for test just for test just for test just for test just for test just for test ",
-        done: false,
-        pin: false
-    }
-]
 </script>
 
 <style lang="scss">
