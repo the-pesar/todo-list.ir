@@ -76,7 +76,6 @@ const changeActive = (btn) => {
     loadingBar.start()
     setTimeout(() => {
         loadingBar.finish()
-
     }, 200)
     activeBtn.value = btn
     router.push({ name: btn })
