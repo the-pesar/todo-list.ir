@@ -3,7 +3,7 @@
         <n-grid-item class="mx-4 2xl:mx-6"> -->
     <div class="flex justify-center">
         <div class="2xl:w-5/12 xl:w-5/12 lg:w-7/12 md:w-11/12 sm:w-11/12 w-11/12">
-            <TodoColumn title="Six Monthly 🐭🌿" :todos="store.sixMonthlyTodos" type="six-monthly" force="medium" />
+            <TodoColumn title="Six Monthly 🐭🌿" :todos="tStore.sixMonthlyTodos" type="six-monthly" force="medium" />
         </div>
     </div>
     <!-- </n-grid-item>
@@ -12,12 +12,12 @@
 </template>
 
 <script setup>
-import { useStore } from "@/stores";
+import { useTodosStore } from "@/stores/todos";
 
 import TodoColumn from '@/components/TodoColumn.vue';
 import AbsoluteAd from '@/components/AbsoluteAd.vue';
 
-const store = useStore();
+const tStore = useTodosStore();
 
 </script>
 

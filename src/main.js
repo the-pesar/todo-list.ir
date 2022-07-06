@@ -12,6 +12,7 @@ import {
   NCheckbox,
   NCollapse,
   NCollapseItem,
+  NConfigProvider,
   NDivider,
   NGrid,
   NGridItem,
@@ -47,6 +48,7 @@ const naive = create({
     NLoadingBarProvider,
     NInput,
     NNotificationProvider,
+    NConfigProvider,
   ],
 });
 
@@ -55,5 +57,4 @@ createApp(App)
   .use(router)
   .use(naive)
   .use(createPinia())
-  .use(i18n)
-  .mount("#app");
+  .mount(document.body);

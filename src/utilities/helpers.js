@@ -33,9 +33,7 @@ export const sortByForce = (todos) => {
   return sortByPin(todos.reverse());
 };
 
-export const fakeLoading = (s) => {
-  return new Promise((resolve) => setTimeout(() => resolve(), s));
-};
+export const fakeLoading = (s) => new Promise((resolve) => setTimeout(() => resolve(), s));
 
 export const defaultENTodos = [
   {

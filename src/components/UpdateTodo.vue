@@ -29,11 +29,11 @@
 
 <script setup>
 import { defineEmits, defineProps, computed, ref, watch, toRefs } from 'vue'
-import { useStore } from "@/stores";
+import { useTodosStore } from "@/stores/todos";
 import { useRoute, useRouter } from 'vue-router';
 import EmojiSelector from './EmojiSelector.vue';
 
-const store = useStore()
+const tStore = useTodosStore()
 const route = useRoute()
 const router = useRouter()
 
@@ -58,7 +58,7 @@ watch(show, () => {
     if (show.value) {
         // because route is't sync
         setTimeout(() => {
-            const todo = store.todos.find((v) => v.id === route.query.id)
+            const todo = tStore.todos.find((v) => v.id === route.query.id)
             title.value = todo.title
             desc.value = todo.desc
         }, 1);
@@ -68,7 +68,7 @@ watch(show, () => {
 })
 
 const updateTodo = () => {
-    store.updateTodo({
+    tStore.updateTodo({
         id: route.query.id,
         title: title.value,
         desc: desc.value,

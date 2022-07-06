@@ -4,10 +4,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
-body,
-#app,
-.n-layout {
-  /* font-family: "DM Sans", sans-serif; */
+body {
   font-family: "Inter", sans-serif;
 }
 
