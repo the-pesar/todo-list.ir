@@ -33,15 +33,15 @@ export const sortByForce = (todos) => {
   return sortByPin(todos.reverse());
 };
 
-export const fakeLoading = (s) => new Promise((resolve) => setTimeout(() => resolve(), s));
+export const fakeLoading = (s) =>
+  new Promise((resolve) => setTimeout(() => resolve(), s));
 
 export const defaultENTodos = [
   {
     id: uuid4(),
     title: "Follow ToDoList on Social Networks 🌎",
     desc: "You can follow us on social media to help us progress and stay up to date with the latest updates",
-    force: "medium", // low - medium - high
-    type: "daily", // daily - weekly - monthly - six-monthly - yearly
+    type: "today", // daily - weekly - monthly - six-monthly - yearly
     draging: false,
     dragOver: false,
     pin: false,
@@ -51,8 +51,7 @@ export const defaultENTodos = [
     id: uuid4(),
     title: "Donate to us 💎",
     desc: "We need money to keep this platform alive",
-    force: "high",
-    type: "daily",
+    type: "today",
     draging: false,
     dragOver: false,
     pin: false,
@@ -62,8 +61,7 @@ export const defaultENTodos = [
     id: uuid4(),
     title: "Introduce ToDoList to your friends 🧠",
     desc: "Help your friends manage their time better",
-    force: "low",
-    type: "daily",
+    type: "today",
     draging: false,
     dragOver: false,
     pin: false,
@@ -73,8 +71,7 @@ export const defaultENTodos = [
     id: uuid4(),
     title: "Read the guide section 📿",
     desc: "To use the ToDoList better, be sure to read its guide so that you do not get into trouble later",
-    force: "high",
-    type: "daily",
+    type: "today",
     draging: false,
     dragOver: false,
     pin: false,
@@ -84,8 +81,7 @@ export const defaultENTodos = [
     id: uuid4(),
     title: "🏀🏀🏀🏀🏀🏀🏀🏀🏀🏀🏀🏀🏀🏀",
     desc: "To use the ToDoList better, be sure to read its guide so that you do not get into trouble later",
-    force: "low",
-    type: "daily",
+    type: "today",
     draging: false,
     dragOver: false,
     pin: false,
@@ -95,8 +91,7 @@ export const defaultENTodos = [
     id: uuid4(),
     title: "🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷",
     desc: "To use the ToDoList better, be sure to read its guide so that you do not get into trouble later",
-    force: "medium",
-    type: "daily",
+    type: "today",
     draging: false,
     dragOver: false,
     pin: false,
@@ -106,8 +101,7 @@ export const defaultENTodos = [
     id: uuid4(),
     title: "🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿",
     desc: "To use the ToDoList better, be sure to read its guide so that you do not get into trouble later",
-    force: "high",
-    type: "daily",
+    type: "today",
     draging: false,
     dragOver: false,
     pin: false,
@@ -117,8 +111,7 @@ export const defaultENTodos = [
     id: uuid4(),
     title: "❌❌❌❌❌❌",
     desc: "To use the ToDoList better, be sure to read its guide so that you do not get into trouble later",
-    force: "medium",
-    type: "daily",
+    type: "today",
     draging: false,
     dragOver: false,
     pin: false,
@@ -128,8 +121,7 @@ export const defaultENTodos = [
     id: uuid4(),
     title: "🚸🚸🚸🚸🚸🚸🚸🚸🚸🚸🚸🚸🚸",
     desc: "To use the ToDoList better, be sure to read its guide so that you do not get into trouble later",
-    force: "high",
-    type: "daily",
+    type: "today",
     draging: false,
     dragOver: false,
     pin: false,

@@ -9,37 +9,22 @@ const routes = [
       {
         path: "",
         name: "home",
-        redirect: { name: "today" },
+        redirect: { name: "todos" },
       },
       {
-        path: "today",
-        name: "today",
-        component: () => import("@/views/Todos/Today.vue"),
+        path: "notes",
+        name: "notes",
+        component: () => import("@/views/Notes.vue"),
       },
       {
-        path: "weekly",
-        name: "weekly",
-        component: () => import("@/views/Todos/Weekly.vue"),
-      },
-      {
-        path: "monthly",
-        name: "monthly",
-        component: () => import("@/views/Todos/Monthly.vue"),
-      },
-      {
-        path: "six-monthly",
-        name: "six-monthly",
-        component: () => import("@/views/Todos/SixMonthly.vue"),
-      },
-      {
-        path: "yearly",
-        name: "yearly",
-        component: () => import("@/views/Todos/Yearly.vue"),
+        path: "todos",
+        name: "todos",
+        component: () => import("@/views/Todos.vue"),
       },
       {
         path: "vision",
         name: "vision",
-        component: () => import("@/views/Todos/Vision.vue"),
+        component: () => import("@/views/Vision.vue"),
       },
       {
         path: "settings",

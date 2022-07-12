@@ -2,26 +2,23 @@
   <n-grid cols="1 s:1 m:2 l:2 xl:3 2xl:3" responsive="screen" x-gap="12">
     <n-grid-item class="mx-4 2xl:mx-6">
       <TodoColumn
-        title="Low 🐼🍋"
-        :todos="tStore.todayLowTodos"
-        type="daily"
-        force="low"
+        title="Today 🐼🍋"
+        :todos="tStore.todayTodos"
+        type="today"
       />
     </n-grid-item>
     <n-grid-item class="mx-4 2xl:mx-6">
       <TodoColumn
-        title="Medium 🐨💎"
-        :todos="tStore.todayMediumTodos"
-        type="daily"
-        force="medium"
+        title="Weekly 🐨💎"
+        :todos="tStore.weeklyTodos"
+        type="weekly"
       />
     </n-grid-item>
     <n-grid-item class="mx-4 2xl:mx-6">
       <TodoColumn
-        title="High 🐻🍭"
-        :todos="tStore.todayHighTodos"
-        type="daily"
-        force="high"
+        title="Monthly 🐻🍭"
+        :todos="tStore.monthlyTodos"
+        type="monthly"
       />
     </n-grid-item>
   </n-grid>

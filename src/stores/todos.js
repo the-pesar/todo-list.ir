@@ -12,42 +12,14 @@ export const useTodosStore = defineStore("todos-store", {
     };
   },
   getters: {
-    todayLowTodos() {
-      return sortByPin(
-        this.todos.filter((v) => v.type === "daily" && v.force === "low")
-      );
-    },
-    todayMediumTodos() {
-      return sortByPin(
-        this.todos.filter((v) => v.type === "daily" && v.force === "medium")
-      );
-    },
-    todayHighTodos() {
-      return sortByPin(
-        this.todos.filter((v) => v.type === "daily" && v.force === "high")
-      );
+    todayTodos() {
+      return sortByPin(this.todos.filter((v) => v.type === "today"));
     },
     weeklyTodos() {
-      return sortByPin(
-        this.todos.filter((v) => v.type === "weekly" && v.force === "medium")
-      );
+      return sortByPin(this.todos.filter((v) => v.type === "weekly"));
     },
     monthlyTodos() {
-      return sortByPin(
-        this.todos.filter((v) => v.type === "monthly" && v.force === "medium")
-      );
-    },
-    sixMonthlyTodos() {
-      return sortByPin(
-        this.todos.filter(
-          (v) => v.type === "six-monthly" && v.force === "medium"
-        )
-      );
-    },
-    yearlyTodos() {
-      return sortByPin(
-        this.todos.filter((v) => v.type === "yearly" && v.force === "medium")
-      );
+      return sortByPin(this.todos.filter((v) => v.type === "monthly"));
     },
   },
   actions: {
@@ -67,12 +39,11 @@ export const useTodosStore = defineStore("todos-store", {
         this.todos = [];
       }
     },
-    createTodo({ title, desc, force, type, pin }) {
+    createTodo({ title, desc, type, pin }) {
       this.todos.push({
         id: uuid4(),
         title,
         desc,
-        force,
         type,
         pin,
         done: false,
@@ -110,8 +81,8 @@ export const useTodosStore = defineStore("todos-store", {
         this.saveTodos();
       }
     },
-    saveTodos(defaultTodos) {
-      localStorage.setItem("todos", JSON.stringify(defaultTodos ?? this.todos));
+    saveTodos(todos = this.todos) {
+      localStorage.setItem("todos", JSON.stringify(todos));
     },
   },
 });

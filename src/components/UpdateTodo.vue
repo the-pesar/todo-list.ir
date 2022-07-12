@@ -56,12 +56,12 @@ const showModal = computed({
 
 watch(show, () => {
     if (show.value) {
-        // because route is't sync
+        // because route isn't sync
         setTimeout(() => {
             const todo = tStore.todos.find((v) => v.id === route.query.id)
             title.value = todo.title
             desc.value = todo.desc
-        }, 1);
+        }, 0);
     } else {
         router.push({ query: {}, replace: true })
     }

@@ -2,63 +2,21 @@
   <n-card :bordered="false">
     <div class="flex flex-col items-center justify-center">
       <n-divider dashed>
-        <span>My Boards</span>
+        <span>Boards</span>
       </n-divider>
       <div
-        class="flex rounded-3xl p-1 w-11/12 cursor-pointer"
-        :class="activeBtn === 'today' ? 'menu-btn-active' : 'menu-btn'"
-        @click="changeActive('today')"
+        v-for="btn in buttons"
+        :key="btn.name"
+        class="flex rounded-3xl p-1 mb-2.5 w-11/12 cursor-pointer"
+        :class="activeBtn === btn.name ? 'menu-btn-active' : 'menu-btn'"
+        @click="changeActive(btn.name)"
       >
-        <i class="bx bx-notepad text-2xl ml-3" style="color: #00ba7c"></i>
-        <button class="ml-6 font-semibold">Today</button>
-      </div>
-      <div
-        class="flex rounded-3xl p-1 w-11/12 mt-3 cursor-pointer"
-        :class="activeBtn === 'weekly' ? 'menu-btn-active' : 'menu-btn'"
-        @click="changeActive('weekly')"
-      >
-        <i class="bx bx-shape-square text-2xl ml-3" style="color: #00ba7c"></i>
-        <button class="ml-6 font-semibold">Weekly</button>
-      </div>
-      <div
-        class="flex rounded-3xl p-1 w-11/12 mt-3 cursor-pointer"
-        :class="activeBtn === 'monthly' ? 'menu-btn-active' : 'menu-btn'"
-        @click="changeActive('monthly')"
-      >
-        <i class="bx bx-extension text-2xl ml-3" style="color: #00ba7c"></i>
-        <button class="ml-6 font-semibold">Monthly</button>
-      </div>
-      <div
-        class="flex rounded-3xl p-1 w-11/12 mt-3 cursor-pointer"
-        :class="activeBtn === 'six-monthly' ? 'menu-btn-active' : 'menu-btn'"
-        @click="changeActive('six-monthly')"
-      >
-        <i class="bx bx-pyramid text-2xl ml-3" style="color: #00ba7c"></i>
-        <button class="ml-6 font-semibold">6-Monthly</button>
-      </div>
-      <div
-        class="flex rounded-3xl p-1 w-11/12 mt-3 cursor-pointer"
-        :class="activeBtn === 'yearly' ? 'menu-btn-active' : 'menu-btn'"
-        @click="changeActive('yearly')"
-      >
-        <i class="bx bx-cube-alt text-2xl ml-3" style="color: #00ba7c"></i>
-        <button class="ml-6 font-semibold">Yearly</button>
-      </div>
-      <div
-        class="flex rounded-3xl p-1 w-11/12 mt-3 cursor-pointer"
-        :class="activeBtn === 'vision' ? 'menu-btn-active' : 'menu-btn'"
-        @click="changeActive('vision')"
-      >
-        <i class="bx bx-hive text-2xl ml-3" style="color: #00ba7c"></i>
-        <button class="ml-6 font-semibold">Vision</button>
-      </div>
-      <div
-        class="flex rounded-3xl p-1 w-11/12 mt-3 cursor-pointer"
-        :class="activeBtn === 'Settings' ? 'menu-btn-active' : 'menu-btn'"
-        @click="changeActive('settings')"
-      >
-        <i class="bx bx-code-alt text-2xl ml-3" style="color: #00ba7c"></i>
-        <button class="ml-6 font-semibold">Settings</button>
+        <i
+          class="bx text-2xl ml-3"
+          :class="`bx-${btn.icon}`"
+          style="color: #00ba7c"
+        ></i>
+        <button class="mx-6 font-semibold" v-text="btn.text"></button>
       </div>
     </div>
   </n-card>
@@ -70,17 +28,41 @@ import { useLoadingBar } from "naive-ui";
 
 const router = useRouter();
 const route = useRoute();
-
 const loadingBar = useLoadingBar();
 
 const activeBtn = ref(route.name || "today");
 
+const buttons = [
+  {
+    text: "Todos",
+    icon: "notepad",
+    name: "todos",
+  },
+  {
+    text: "Notes",
+    icon: "cube-alt",
+    name: "notes",
+  },
+  {
+    text: "Vision",
+    icon: "pyramid",
+    name: "vision",
+  },
+  {
+    text: "Settings",
+    icon: "hive",
+    name: "settings",
+  },
+];
+
 const changeActive = (btn) => {
+  activeBtn.value = btn;
+
   loadingBar.start();
   setTimeout(() => {
     loadingBar.finish();
   }, 200);
-  activeBtn.value = btn;
+
   router.push({ name: btn });
 };
 </script>
