@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { defineEmits, defineProps, computed } from 'vue'
+import { defineEmits, defineProps, ref } from 'vue'
 import dayjs from 'dayjs'
 
 defineProps({
@@ -16,7 +16,9 @@ defineProps({
 })
 defineEmits(['update:sidebar'])
 
-const date = computed(() => {
-    return dayjs().format('H:m:s - dddd DD MMMM')
-})
+const date = ref(dayjs().format('H:m:s - YYYY/M/D'))
+
+setInterval(() => {
+    date.value = dayjs().format('H:m:s - YYYY/M/D')
+}, 1000);
 </script>
