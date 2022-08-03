@@ -31,7 +31,7 @@
 import { defineEmits, defineProps, computed, ref, watch, toRefs } from 'vue'
 import { useTodosStore } from "@/stores/todos";
 import { useRoute, useRouter } from 'vue-router';
-import EmojiSelector from './EmojiSelector.vue';
+import EmojiSelector from '@/components/Todos/EmojiSelector.vue';
 
 const tStore = useTodosStore()
 const route = useRoute()

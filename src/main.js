@@ -20,6 +20,7 @@ import {
   NLayout,
   NLayoutContent,
   NLayoutFooter,
+  NLayoutHeader,
   NLayoutSider,
   NLoadingBarProvider,
   NModal,
@@ -49,6 +50,7 @@ const naive = create({
     NInput,
     NNotificationProvider,
     NConfigProvider,
+    NLayoutHeader
   ],
 });
 

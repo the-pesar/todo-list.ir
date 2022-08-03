@@ -12,14 +12,14 @@ export const useTodosStore = defineStore("todos-store", {
     };
   },
   getters: {
-    todayTodos() {
-      return sortByPin(this.todos.filter((v) => v.type === "today"));
+    lowTodos() {
+      return sortByPin(this.todos.filter((v) => v.type === "low"));
     },
-    weeklyTodos() {
-      return sortByPin(this.todos.filter((v) => v.type === "weekly"));
+    mediumTodos() {
+      return sortByPin(this.todos.filter((v) => v.type === "medium"));
     },
-    monthlyTodos() {
-      return sortByPin(this.todos.filter((v) => v.type === "monthly"));
+    highTodos() {
+      return sortByPin(this.todos.filter((v) => v.type === "high"));
     },
   },
   actions: {
@@ -35,17 +35,17 @@ export const useTodosStore = defineStore("todos-store", {
       try {
         this.todos = JSON.parse(cacheTodos);
       } catch (error) {
-        this.saveTodos([]);
         this.todos = [];
+        this.saveTodos();
       }
     },
-    createTodo({ title, desc, type, pin }) {
+    createTodo({ title, desc, type }) {
       this.todos.push({
         id: uuid4(),
         title,
         desc,
         type,
-        pin,
+        pin: false,
         done: false,
       });
 
@@ -53,6 +53,7 @@ export const useTodosStore = defineStore("todos-store", {
     },
     updateTodo({ id, title, desc }) {
       const i = this.todos.findIndex((value) => value.id === id);
+
       this.todos[i].title = title;
       this.todos[i].desc = desc;
       this.saveTodos();
@@ -60,29 +61,23 @@ export const useTodosStore = defineStore("todos-store", {
     deleteTodo({ id }) {
       const i = this.todos.findIndex((value) => value.id === id);
 
-      if (i !== -1) {
-        this.todos.splice(i, 1);
-        this.saveTodos();
-      }
+      this.todos.splice(i, 1);
+      this.saveTodos();
     },
     doneOrUndoneTodo({ id, done }) {
       const i = this.todos.findIndex((value) => value.id === id);
 
-      if (i !== -1) {
-        this.todos[i].done = done;
-        this.saveTodos();
-      }
+      this.todos[i].done = done;
+      this.saveTodos();
     },
     pinOrUnpinTodo({ id, pin }) {
       const i = this.todos.findIndex((value) => value.id === id);
 
-      if (i !== -1) {
-        this.todos[i].pin = pin;
-        this.saveTodos();
-      }
+      this.todos[i].pin = pin;
+      this.saveTodos();
     },
-    saveTodos(todos = this.todos) {
-      localStorage.setItem("todos", JSON.stringify(todos));
+    saveTodos() {
+      localStorage.setItem("todos", JSON.stringify(this.todos));
     },
   },
 });

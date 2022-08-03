@@ -1,8 +1,6 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.vue"],
-  colors: {
-    "primary": "#4fb233"
-  },
+  colors: {},
   theme: {
     extend: {},
   },
