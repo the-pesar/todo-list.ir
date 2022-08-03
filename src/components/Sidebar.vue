@@ -1,22 +1,27 @@
 <template>
-  <div class="flex flex-col items-center justify-center mt-5">
+  <div class="flex flex-col items-center justify-center mt-5 mx-2">
 
-    <div v-for="btn in buttons" :key="btn.name" class="flex rounded-xl p-1 mb-2.5 w-11/12 cursor-pointer"
-      :class="activeButton === btn.name ? 'menu-btn-active' : 'menu-btn'" @click="setActive(btn.name)">
-      <i class="bx text-2xl ml-3 text-[#00ba7c]" :class="`bx-${btn.icon}`"></i>
+    <div v-for="btn in buttons" :key="btn.name" class="flex p-1 mb-2.5 w-11/12 cursor-pointer overflow-x-hidden"
+      :class="[activeButton === btn.name ? 'menu-btn-active' : 'menu-btn', isopen ? 'rounded-xl' : 'rounded-full']"
+      @click="setActive(btn.name)">
+      <i class="bx text-2xl ml-[5px] text-[#00ba7c]" :class="`bx-${btn.icon}`"></i>
       <button class="mx-6 font-semibold outline-none" v-text="btn.text"></button>
     </div>
 
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, defineProps } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useLoadingBar } from "naive-ui";
 
 const router = useRouter();
 const route = useRoute();
 const loadingBar = useLoadingBar();
+
+defineProps({
+  isopen: Boolean
+})
 
 const activeButton = ref(route.name || "todos");
 
@@ -30,11 +35,6 @@ const buttons = [
     text: "Notes",
     icon: "cube-alt",
     name: "notes",
-  },
-  {
-    text: "Vision",
-    icon: "pyramid",
-    name: "vision",
   },
   {
     text: "Settings",

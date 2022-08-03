@@ -27,3 +27,8 @@ import TodoColumn from "@/components/Todos/TodoColumn.vue";
 
 const tStore = useTodosStore();
 </script>
+<style scoped>
+.n-grid {
+  overflow: hidden;
+}
+</style>

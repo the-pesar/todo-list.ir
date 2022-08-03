@@ -22,11 +22,6 @@ const routes = [
         component: () => import("@/views/Notes.vue"),
       },
       {
-        path: "vision",
-        name: "vision",
-        component: () => import("@/views/Vision.vue"),
-      },
-      {
         path: "settings",
         name: "settings",
         component: () => import("@/views/Settings.vue"),

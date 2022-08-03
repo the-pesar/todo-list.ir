@@ -7,7 +7,7 @@
     <CreateTodo v-if="showCreateTodo" class="mb-2" :type="type" @create="createTodo($event)" />  
     <PlusButton v-else @click="showCreateTodo = !showCreateTodo" />
   </n-collapse>
-  <UpdateTodo v-model:show="showUpdateModal" :modal="true" />
+  <!-- <UpdateTodo v-model:show="showUpdateModal" :modal="true" /> -->
 </template>
 
 <script setup>
@@ -17,7 +17,7 @@ import { useTodosStore } from "@/stores/todos";
 
 import Todo from "@/components/Todos/Todo";
 import CreateTodo from "@/components/Todos/CreateTodo";
-import UpdateTodo from "@/components/Todos/UpdateTodo";
+// import UpdateTodo from "@/components/Todos/UpdateTodo";
 import PlusButton from "@/components/Todos/PlusButton";
 
 const tStore = useTodosStore();
@@ -31,7 +31,7 @@ defineProps({
 
 
 const showCreateTodo = ref(false);
-const showUpdateModal = ref(false);
+// const showUpdateModal = ref(false);
 
 // const updateTodoEvent = (id) => {
 //   router.push({ query: { id } });

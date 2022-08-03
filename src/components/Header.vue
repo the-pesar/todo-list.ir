@@ -16,9 +16,9 @@ defineProps({
 })
 defineEmits(['update:sidebar'])
 
-const date = ref(dayjs().format('H:m:s - YYYY/M/D'))
+const date = ref(dayjs().format('H:mm:ss'))
 
 setInterval(() => {
-    date.value = dayjs().format('H:m:s - YYYY/M/D')
+    date.value = dayjs().format('H:mm:ss')
 }, 1000);
 </script>
