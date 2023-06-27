@@ -8,10 +8,15 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.11",
+    "uuid": "^9.0.0"
+  },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18",
+    "@types/uuid": "^9.0.2",
     "daisyui": "^3.1.6",
     "nuxt": "^3.6.0",
     "typescript": "latest"

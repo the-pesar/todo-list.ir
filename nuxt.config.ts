@@ -1,6 +1,12 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
-  modules: ['@nuxtjs/tailwindcss'],
-  devtools: { enabled: true }
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
+  css: ["@/assets/styles/main.css"],
+  devtools: { enabled: true },
+  imports: {
+    dirs: ["./stores"],
+  },
+  pinia: {
+    autoImports: ["defineStore", "acceptHMRUpdate"],
+  },
 })
