@@ -7,7 +7,7 @@
   >
     <div class="collapse-title text-lg font-medium px-2">
       <div class="flex justify-between">
-        <div class="flex">
+        <div class="flex w-full">
           <img v-show="open" src="@/assets/icons/chevron-down.svg" alt="" />
           <img v-show="!open" src="@/assets/icons/chevron-right.svg" alt="" />
           <p v-text="todo.title"></p>
