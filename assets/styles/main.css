@@ -1,0 +1,6 @@
+html[data-mode=light] {
+  background-color: #f5f5f5;
+}
+html[data-mode=dark] {
+  background-color: black;
+}

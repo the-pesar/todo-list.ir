@@ -1,42 +1,24 @@
 {
-  "name": "vue-todo",
-  "version": "0.1.0",
+  "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "axios": "^0.27.2",
-    "core-js": "^3.8.3",
-    "dayjs": "^1.11.3",
-    "pinia": "^2.0.14",
-    "register-service-worker": "^1.7.2",
-    "uuid": "^8.3.2",
-    "vue": "^3.2.13",
-    "vue-i18n": "^9.1.10",
-    "vue-router": "^4.0.3"
+    "@pinia/nuxt": "^0.4.11",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@intlify/vue-i18n-loader": "^3.0.0",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-pwa": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "@vue/test-utils": "^2.0.2",
-    "autoprefixer": "^10.4.7",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "naive-ui": "^2.29.0",
-    "postcss": "^8.4.14",
-    "sass": "^1.32.7",
-    "sass-loader": "^12.0.0",
-    "tailwindcss": "^3.0.24",
-    "vue-cli-plugin-i18n": "~2.3.1"
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@types/node": "^18",
+    "@types/uuid": "^9.0.2",
+    "daisyui": "^3.1.6",
+    "nuxt": "^3.6.0",
+    "typescript": "latest"
   }
 }
