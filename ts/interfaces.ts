@@ -28,3 +28,7 @@ interface IDoneToggleTodo {
   id: string
   done: boolean
 }
+
+interface IArchiveTodo {
+  id: string
+}

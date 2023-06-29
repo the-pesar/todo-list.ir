@@ -1,7 +1,7 @@
 <template>
   <div
     tabindex="0"
-    class="collapse bg-white shadow-sm rounded-xl cursor-pointer mb-3"
+    class="collapse bg-white shadow-sm rounded-xl cursor-pointer mb-3 z-10"
     :class="open ? 'collapse-open' : 'collapse-close'"
     @click.stop="open = !open"
   >
@@ -19,7 +19,29 @@
             :checked="todo.done"
             @click.stop="doneToggleTodo({ id: todo.id, done: !todo.done })"
           />
-          <img src="@/assets/icons/more-vertical.svg" width="27" alt="" />
+          <div class="dropdown dropdown-left z-[10000]">
+            <label>
+              <img
+                tabindex="1"
+                class="cursor-pointer"
+                src="@/assets/icons/more-vertical.svg"
+                width="27"
+                alt=""
+                @click.stop
+              />
+            </label>
+            <div
+              tabindex="1"
+              class="dropdown-content bg-[#f5f5f5] -mt-[7px] shadow-sm rounded-xl px-2 py-1 w-[181px] text-base z-50"
+              @click.stop
+            >
+              <button>Edit</button>
+              <span> / </span>
+              <button @click="archiveTodo({ id: todo.id })">Archive</button>
+              <span> / </span>
+              <button @click="deleteTodo({ id: todo.id })">Delete</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -34,7 +56,8 @@ const props = defineProps<{
   todo: ITodo
 }>()
 
-const { doneToggleTodo } = useTodosStore()
+const { doneToggleTodo, deleteTodo, archiveTodo } = useTodosStore()
 
 const open = ref<boolean>(false)
+const optionsOpen = ref<boolean>(false)
 </script>
