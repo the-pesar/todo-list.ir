@@ -67,13 +67,13 @@ export const useTodosStore = defineStore("todos", () => {
   const todos = ref<ITodo[]>([])
 
   const lowTodos = computed<ITodo[]>(() =>
-    todos.value.filter((v) => v.level === "low")
+    todos.value.filter((v) => v.level === "low" && !v.archive)
   )
   const mediumTodos = computed<ITodo[]>(() =>
-    todos.value.filter((v) => v.level === "medium")
+    todos.value.filter((v) => v.level === "medium" && !v.archive)
   )
   const highTodos = computed<ITodo[]>(() =>
-    todos.value.filter((v) => v.level === "high")
+    todos.value.filter((v) => v.level === "high" && !v.archive)
   )
 
   const cachedTodos = localStorage.getItem("todos")
@@ -111,14 +111,30 @@ export const useTodosStore = defineStore("todos", () => {
     saveTodos()
     return todos.value[i]
   }
-  function deleteTodo({ id }: IDeleteTodo) {
+  function deleteTodo({ id }: IDeleteTodo): boolean {
     const i = todos.value.findIndex((value) => value.id === id)
 
     todos.value.splice(i, 1)
     saveTodos()
+    return true
+  }
+  function archiveTodo({ id }: IArchiveTodo): ITodo {
+    const i = todos.value.findIndex((value) => value.id === id)
+    todos.value[i].archive = true
+    saveTodos()
+    return todos.value[i]
   }
   function saveTodos() {
     localStorage.setItem("todos", JSON.stringify(todos.value))
   }
-  return { todos, lowTodos, mediumTodos, highTodos, createTodo, doneToggleTodo }
+  return {
+    todos,
+    lowTodos,
+    mediumTodos,
+    highTodos,
+    createTodo,
+    doneToggleTodo,
+    deleteTodo,
+    archiveTodo,
+  }
 })
