@@ -8,8 +8,8 @@
     <div class="collapse-title text-lg font-medium px-2">
       <div class="flex justify-between">
         <div class="flex w-full">
-          <img v-show="open" src="@/assets/icons/chevron-down.svg" alt="" />
-          <img v-show="!open" src="@/assets/icons/chevron-right.svg" alt="" />
+          <ChevronDownIcon v-if="open" />
+          <ChevronRightIcon v-else />
           <p class="text-primary" v-text="todo.title"></p>
         </div>
         <div class="flex items-center">
@@ -21,14 +21,7 @@
           />
           <div class="dropdown dropdown-left z-[10000]">
             <label>
-              <img
-                tabindex="1"
-                class="cursor-pointer"
-                src="@/assets/icons/more-vertical.svg"
-                width="27"
-                alt=""
-                @click.stop
-              />
+              <MoreIcon class="cursor-pointer" tabindex="1" @click.stop />
             </label>
             <div
               tabindex="1"
@@ -52,6 +45,10 @@
 </template>
 
 <script lang="ts" setup>
+import ChevronDownIcon from "@/components/icons/ChevronDown.vue"
+import ChevronRightIcon from "@/components/icons/ChevronRight.vue"
+import MoreIcon from "@/components/icons/More.vue"
+
 const props = defineProps<{
   todo: ITodo
 }>()
