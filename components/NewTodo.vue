@@ -3,7 +3,7 @@
     <input
       v-if="step === 'title'"
       v-model="title"
-      class="input input-bordered input-md py-7 text-lg shadow-sm rounded-xl focus:outline-none w-full"
+      class="input input-bordered input-md py-7 text-lg shadow-sm rounded-xl focus:outline-none w-full bg-primary"
       ref="input"
       type="text"
       placeholder="Write a title..."
@@ -13,7 +13,7 @@
     <textarea
       v-else-if="step === 'description'"
       v-model="description"
-      class="textarea textarea-bordered h-[120px] resize-none text-lg shadow-sm rounded-xl focus:outline-none w-full"
+      class="textarea textarea-bordered h-[120px] resize-none text-lg shadow-sm rounded-xl focus:outline-none w-full bg-primary"
       ref="textarea"
       placeholder="Write a description for todo... (optional)"
       @blur="switchToUnactive"
@@ -22,7 +22,7 @@
   </div>
   <div
     v-else
-    class="text-center text-4xl cursor-pointer"
+    class="text-center text-4xl cursor-pointer text-secondary"
     @click="switchToActive"
   >
     +

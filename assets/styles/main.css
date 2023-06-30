@@ -1,6 +1,36 @@
-html[data-mode=light] {
+html[data-theme="light"] {
+  --primary-color: #ffffff;
+  --secondary-color: #000;
+  --tertiary-color: #000;
   background-color: #f5f5f5;
 }
-html[data-mode=dark] {
-  background-color: black;
+
+html[data-theme="dark"] {
+  --primary-color: #252627;
+  --secondary-color: rgba(255, 255, 255, 0.9);
+  --tertiary-color: rgba(255, 255, 255, 0.9);
+  background-color: #18191a;
+}
+
+html[data-theme="jungle"] {
+  --primary-color: #f5f5f5;
+  --tertiary-color: #f5f5f5;
+  background-image: url("@/assets/images/jungle.jpg");
+  background-size: cover;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+  background-color: var(--) !important;
+}
+
+.text-primary {
+  color: var(--secondary-color) !important;
+}
+
+.text-secondary {
+  color: var(--tertiary-color);
 }
