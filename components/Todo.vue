@@ -21,11 +21,11 @@
           />
           <div class="dropdown dropdown-left z-[10000]">
             <label>
-              <MoreIcon class="cursor-pointer" tabindex="1" @click.stop />
+              <MoreIcon class="cursor-pointer outline-none" tabindex="1" @click.stop />
             </label>
             <div
               tabindex="1"
-              class="dropdown-content text-primary bg-primary -mt-[7px] shad rounded-xl px-2 py-1 w-[181px] text-base z-50"
+              class="dropdown-content text-primary bg-primary -mt-[3px] shad rounded-xl px-2 py-1 w-[181px] text-base z-50"
               @click.stop
             >
               <button>Edit</button>

@@ -16,7 +16,7 @@ html[data-theme="jungle"] {
   --primary-color: #f5f5f5;
   --secondary-color: #000;
   --tertiary-color: #f5f5f5;
-  background-image: url("@/assets/images/jungle.jpg");
+  background-image: url("@/assets/images/jungle.webp");
   background-size: cover;
 }
 

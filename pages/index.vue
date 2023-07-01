@@ -69,4 +69,6 @@ import ArchiveIcon from "@/components/icons/Archive.vue"
 
 const todosStore = useTodosStore()
 const { lowTodos, mediumTodos, highTodos } = storeToRefs(todosStore)
+
+useHead({title: 'Todolist | تودولیست'})
 </script>
