@@ -9,14 +9,14 @@
     </label>
     <div
       tabindex="0"
-      class="dropdown-content z-[50] mt-2 py-4 px-5 shadow-md bg-base-100 rounded-box w-[300px]"
+      class="dropdown-content z-[50] mt-2 py-4 px-5 shadow-md bg-base-100 rounded-box w-[300px] backup-bg-color"
     >
       <h3 class="text-center mb-4 font-bold">Export & Import Data</h3>
       <div class="flex justify-between">
         <div class="tooltip tooltip-bottom w-[47%]" data-tip="backup.json">
-          <button class="btn w-full" @click="exportData">Export ⚡</button>
+          <button class="btn w-full backup-btn-bg-color shadow-sm" @click="exportData">Export ⚡</button>
         </div>
-        <button class="btn w-[47%]" @click="importData">Import 🔥</button>
+        <button class="btn w-[47%] backup-btn-bg-color shadow-sm" @click="importData">Import 🔥</button>
       </div>
     </div>
   </div>
