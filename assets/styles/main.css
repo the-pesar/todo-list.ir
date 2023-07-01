@@ -1,21 +1,24 @@
 html[data-theme="light"] {
   --primary-color: #ffffff;
   --secondary-color: #000;
-  --tertiary-color: #000;
+  --plus-icon-color: #000;
+  --modal-bg-color: #f5f5f5;
   background-color: #f5f5f5;
 }
 
 html[data-theme="dark"] {
   --primary-color: #252627;
   --secondary-color: rgba(255, 255, 255, 0.9);
-  --tertiary-color: rgba(255, 255, 255, 0.9);
+  --plus-icon-color: rgba(255, 255, 255, 0.9);
+  --modal-bg-color: #18191a;
   background-color: #18191a;
 }
 
 html[data-theme="jungle"] {
   --primary-color: #f5f5f5;
   --secondary-color: #000;
-  --tertiary-color: #f5f5f5;
+  --plus-icon-color: #f5f5f5;
+  --modal-bg-color: #dfdfdf;
   background-image: url("@/assets/images/jungle.webp");
   background-size: cover;
 }
@@ -28,6 +31,10 @@ html[data-theme="jungle"] {
   color: var(--secondary-color) !important;
 }
 
-.text-secondary {
-  color: var(--tertiary-color);
+.modal-bg-color {
+  background-color: var(--modal-bg-color);
+}
+
+.plus-icon-color {
+  color: var(--plus-icon-color);
 }
