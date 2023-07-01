@@ -22,7 +22,7 @@
   </div>
   <div
     v-else
-    class="text-center text-4xl cursor-pointer text-secondary"
+    class="text-center text-4xl cursor-pointer plus-icon-color"
     @click="switchToActive"
   >
     +

@@ -1,19 +1,14 @@
 <template>
-  <main>
-    <nav class="flex justify-end pt-5 px-4 xl:mx-20">
+  <main class="xl:mx-20">
+    <nav class="flex justify-end pt-5 px-4">
       <div>
-        <button
-          class="btn btn-disabled capitalize rounded-xl bg-primary text-primary shadow-sm text-lg font-medium hover:bg-primary"
-        >
-          Archives
-          <ArchiveIcon />
-        </button>
+        <Archives />
       </div>
     </nav>
     <div
-      class="flex w-12/12 flex-col xl:flex-row items-center xl:items-start xl:mx-20 mt-5"
+      class="flex w-12/12 flex-col xl:flex-row items-center xl:items-start mt-5"
     >
-      <section class="w-12/12 md:w-10/12 lg:w-8/12 xl:w-4/12 px-4">
+      <section class="w-full md:w-10/12 lg:w-8/12 xl:w-4/12 px-4">
         <div
           class="flex items-center py-3 px-2 bg-primary mb-3 rounded-xl shadow-sm"
         >
@@ -23,12 +18,12 @@
         </div>
         <div>
           <template v-for="todo in lowTodos" :key="todo.id">
-            <Todo :todo="todo" />
+            <Todo :todo="todo" :isArchive="false" />
           </template>
         </div>
         <NewTodo level="low" />
       </section>
-      <section class="w-12/12 md:w-10/12 lg:w-8/12 xl:w-4/12 px-4">
+      <section class="w-full md:w-10/12 lg:w-8/12 xl:w-4/12 px-4">
         <div
           class="flex items-center py-3 px-2 bg-primary mb-3 rounded-xl shadow-sm"
         >
@@ -38,12 +33,12 @@
         </div>
         <div>
           <template v-for="todo in mediumTodos" :key="todo.id">
-            <Todo :todo="todo" />
+            <Todo :todo="todo" :isArchive="false" />
           </template>
         </div>
         <NewTodo level="medium" />
       </section>
-      <section class="w-12/12 md:w-10/12 lg:w-8/12 xl:w-4/12 px-4">
+      <section class="w-full md:w-10/12 lg:w-8/12 xl:w-4/12 px-4">
         <div
           class="flex items-center py-3 px-2 bg-primary mb-3 rounded-xl shadow-sm"
         >
@@ -53,7 +48,7 @@
         </div>
         <div>
           <template v-for="todo in highTodos" :key="todo.id">
-            <Todo :todo="todo" />
+            <Todo :todo="todo" :isArchive="false" />
           </template>
         </div>
         <NewTodo level="high" />
@@ -65,8 +60,9 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia"
-import ArchiveIcon from "@/components/icons/Archive.vue"
 
 const todosStore = useTodosStore()
 const { lowTodos, mediumTodos, highTodos } = storeToRefs(todosStore)
+
+useHead({ title: "Todolist | تودولیست" })
 </script>

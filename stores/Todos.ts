@@ -61,6 +61,26 @@ const defaultTodos: ITodo[] = [
     done: false,
     archive: false,
   },
+  {
+    id: uuid4(),
+    title: "Just For Test 98 🍄",
+    description:
+      "You can follow us on social media to help us progress and stay up to date with the latest updates",
+    level: "low",
+    pin: false,
+    done: true,
+    archive: true,
+  },
+  {
+    id: uuid4(),
+    title: "Just For Test 99",
+    description:
+      "You can follow us on social media to help us progress and stay up to date with the latest updates",
+    level: "high",
+    pin: false,
+    done: false,
+    archive: true,
+  },
 ]
 
 export const useTodosStore = defineStore("todos", () => {
@@ -74,6 +94,9 @@ export const useTodosStore = defineStore("todos", () => {
   )
   const highTodos = computed<ITodo[]>(() =>
     todos.value.filter((v) => v.level === "high" && !v.archive)
+  )
+  const archivedTodos = computed<ITodo[]>(() =>
+    todos.value.filter((v) => v.archive)
   )
 
   const cachedTodos = localStorage.getItem("todos")
@@ -92,15 +115,12 @@ export const useTodosStore = defineStore("todos", () => {
     }
     todos.value.push(todo)
     saveTodos()
-    console.log(todos.value)
-
     return todo
   }
   function doneToggleTodo({ id, done }: IDoneToggleTodo): ITodo {
     const i = todos.value.findIndex((value) => value.id === id)
     todos.value[i].done = done
     saveTodos()
-    console.log(todos.value)
     return todos.value[i]
   }
   function updateTodo({ id, title, description }: IUpdateTodo): ITodo {
@@ -124,6 +144,12 @@ export const useTodosStore = defineStore("todos", () => {
     saveTodos()
     return todos.value[i]
   }
+  function restoreTodo({ id }: IRestoreTodo): ITodo {
+    const i = todos.value.findIndex((value) => value.id === id)
+    todos.value[i].archive = false
+    saveTodos()
+    return todos.value[i]
+  }
   function saveTodos() {
     localStorage.setItem("todos", JSON.stringify(todos.value))
   }
@@ -132,9 +158,11 @@ export const useTodosStore = defineStore("todos", () => {
     lowTodos,
     mediumTodos,
     highTodos,
+    archivedTodos,
     createTodo,
     doneToggleTodo,
     deleteTodo,
     archiveTodo,
+    restoreTodo,
   }
 })

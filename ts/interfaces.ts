@@ -32,3 +32,7 @@ interface IDoneToggleTodo {
 interface IArchiveTodo {
   id: string
 }
+
+interface IRestoreTodo {
+  id: string
+}
