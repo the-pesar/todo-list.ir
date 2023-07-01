@@ -164,5 +164,6 @@ export const useTodosStore = defineStore("todos", () => {
     deleteTodo,
     archiveTodo,
     restoreTodo,
+    saveTodos,
   }
 })

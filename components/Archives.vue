@@ -3,8 +3,7 @@
     class="btn capitalize rounded-xl bg-primary text-primary shadow-sm text-lg font-medium hover:bg-primary"
     @click="isOpen = true"
   >
-    Archives
-    <ArchiveIcon />
+    Archive 📚
   </button>
   <dialog
     id="my_modal_1"
@@ -22,7 +21,7 @@
       >
         ✕
       </button>
-      <h3 class="font-bold text-lg mb-4">Archived Todos</h3>
+      <h3 class="font-bold text-lg mb-4 text-center">Archived Todos 🗳️</h3>
       <template v-for="todo in archivedTodos" :key="todo.id">
         <Todo :todo="todo" :isArchive="true" />
       </template>
@@ -32,7 +31,7 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia"
-import ArchiveIcon from "@/components/icons/Archive.vue"
+// import ArchiveIcon from "@/components/icons/Archive.vue"
 
 const todosStore = useTodosStore()
 const { archivedTodos } = storeToRefs(todosStore)
