@@ -1,8 +1,21 @@
-# Nuxt 3 Minimal Starter
+# To Do List
+
+todo-list.ir is an open source web application that is being developed with Nuxt (Vue.js), TypeScript, Tailwind CSS, daisyUI and Pinia.
+
+## Features
+
+- [x] Lightweight and fast
+- [x] Multi theme
+- [ ] PWA
+- [ ] Export & import raw data
+- [ ] Mutli language
+- [ ] Log system
+
+## Nuxt Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Setup
+#### Setup
 
 Make sure to install the dependencies:
 
@@ -17,7 +30,7 @@ pnpm install
 yarn install
 ```
 
-## Development Server
+#### Development Server
 
 Start the development server on `http://localhost:3000`:
 
@@ -32,7 +45,7 @@ pnpm run dev
 yarn dev
 ```
 
-## Production
+#### Production
 
 Build the application for production:
 
