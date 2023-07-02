@@ -65,5 +65,5 @@ import { storeToRefs } from "pinia"
 const todosStore = useTodosStore()
 const { lowTodos, mediumTodos, highTodos } = storeToRefs(todosStore)
 
-useHead({ title: "Todolist | تودولیست" })
+useHead({ title: "Todolist | تودولیست", htmlAttrs: { "data-theme": "light" } })
 </script>

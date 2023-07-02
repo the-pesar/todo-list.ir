@@ -1,3 +1,4 @@
 <template>
+  <VitePwaManifest />
   <NuxtPage />
 </template>

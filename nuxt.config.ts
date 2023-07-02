@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   ssr: false,
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@vite-pwa/nuxt"],
   css: ["@/assets/styles/main.css"],
   devtools: { enabled: true },
   imports: {
@@ -8,5 +8,39 @@ export default defineNuxtConfig({
   },
   pinia: {
     autoImports: ["defineStore", "acceptHMRUpdate"],
+  },
+  pwa: {
+    manifest: {
+      name: "todolist",
+      short_name: "todolist",
+      description: "desc...",
+      theme_color: "#ffffff",
+      icons: [
+        {
+          src: "pwa-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "pwa-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
+    },
+    client: {
+      installPrompt: true,
+    },
+    workbox: {
+      navigateFallback: "/",
+      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+    },
+    devOptions: {
+      enabled: true,
+      suppressWarnings: true,
+      navigateFallbackAllowlist: [/^\/$/],
+      type: "module",
+    },
+    registerType: "autoUpdate",
   },
 })

@@ -17,6 +17,7 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18",
     "@types/uuid": "^9.0.2",
+    "@vite-pwa/nuxt": "^0.1.0",
     "daisyui": "^3.1.6",
     "nuxt": "^3.6.0",
     "typescript": "latest"
