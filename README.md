@@ -7,7 +7,7 @@ todo-list.ir is an open source web application that is being developed with Nuxt
 - [x] Lightweight and fast
 - [x] Multi theme
 - [x] Export & import raw data
-- [ ] PWA
+- [x] PWA
 - [ ] Mutli language
 - [ ] Log system
 - [ ] Integrate with Pomodoro.ir
