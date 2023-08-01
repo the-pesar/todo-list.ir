@@ -2,7 +2,7 @@
   <div class="dropdown dropdown-bottom dropdown-end" ref="dropdown">
     <label tabindex="0">
       <button
-        class="btn capitalize rounded-xl bg-primary text-primary shadow-sm text-lg font-medium hover:bg-primary mx-2"
+        class="btn capitalize rounded-xl bg-primary text-primary shadow-sm text-lg font-medium hover:bg-primary mx-2 w-max"
       >
         Backup 📥
       </button>
@@ -14,9 +14,19 @@
       <h3 class="text-center mb-4 font-bold">Export & Import Data</h3>
       <div class="flex justify-between">
         <div class="tooltip tooltip-bottom w-[47%]" data-tip="backup.json">
-          <button class="btn w-full backup-btn-bg-color shadow-sm" @click="exportData">Export ⚡</button>
+          <button
+            class="btn w-full backup-btn-bg-color shadow-sm"
+            @click="exportData"
+          >
+            Export ⚡
+          </button>
         </div>
-        <button class="btn w-[47%] backup-btn-bg-color shadow-sm" @click="importData">Import 🔥</button>
+        <button
+          class="btn w-[47%] backup-btn-bg-color shadow-sm"
+          @click="importData"
+        >
+          Import 🔥
+        </button>
       </div>
     </div>
   </div>
