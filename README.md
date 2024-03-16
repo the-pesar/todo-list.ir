@@ -1,22 +1,18 @@
-# To Do List
+# Todolist
 
-todo-list.ir is an open source web application that is being developed with Nuxt (Vue.js), TypeScript, Tailwind CSS, daisyUI and Pinia.
+Todolist is a minimal to-do list Application to boost My productivity to organizing my routine todos. This app aims to avoding complexity and noisy UI.
 
-## Features
+List of v1 goals:
 
-- [x] Lightweight and fast
-- [x] Multi theme
-- [x] Export & import raw data
-- [x] PWA
-- [ ] Mutli language
-- [ ] Log system
-- [ ] Integrate with Pomodoro.ir
+- Add, delete and order tasks
+- PWA installation
+- Date system
 
-## Nuxt Minimal Starter
+# Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-#### Setup
+## Setup
 
 Make sure to install the dependencies:
 
@@ -29,9 +25,12 @@ pnpm install
 
 # yarn
 yarn install
+
+# bun
+bun install
 ```
 
-#### Development Server
+## Development Server
 
 Start the development server on `http://localhost:3000`:
 
@@ -44,9 +43,12 @@ pnpm run dev
 
 # yarn
 yarn dev
+
+# bun
+bun run dev
 ```
 
-#### Production
+## Production
 
 Build the application for production:
 
@@ -59,6 +61,9 @@ pnpm run build
 
 # yarn
 yarn build
+
+# bun
+bun run build
 ```
 
 Locally preview production build:
@@ -72,6 +77,9 @@ pnpm run preview
 
 # yarn
 yarn preview
+
+# bun
+bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

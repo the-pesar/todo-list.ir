@@ -1,5 +1,6 @@
 # Nuxt dev/build outputs
 .output
+.data
 .nuxt
 .nitro
 .cache
@@ -7,9 +8,6 @@ dist
 
 # Node dependencies
 node_modules
-yarn.lock
-package-lock.json
-yarn.lock
 
 # Logs
 logs
